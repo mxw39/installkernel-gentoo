@@ -55,7 +55,7 @@ if [[ ${COMMAND} == add ]]; then
 	INITRD="${KERNEL_INSTALL_STAGING_AREA}/initrd"
 	if [[ -f ${INITRD} ]]; then
 		[[ ${KERNEL_INSTALL_VERBOSE} == 1 ]] && echo "Installing initramfs image for ${KERNEL_VERSION}..."
-		cp "${INITRD}" "${KERNEL_INSTALL_ROOT}/initramfs-${KERNEL_VERSION}.img" || exit 1
+		cp -a "${INITRD}" "${KERNEL_INSTALL_ROOT}/initramfs-${KERNEL_VERSION}.img" || exit 1
 	fi
 
 	# Copy microcode to ESP so we can add it to the efistub entry
